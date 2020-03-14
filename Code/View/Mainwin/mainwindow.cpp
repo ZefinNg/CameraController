@@ -5,11 +5,8 @@
 #define APP_HEIGHT (720)
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    QMainWindow(parent)
 {
-    ui->setupUi(this);
-
     this->setWindowIcon(QIcon(":/Logo.ico"));
     this->setWindowTitle(tr("CameraController"));
     this->resize(APP_WIDTH, APP_HEIGHT);
@@ -30,12 +27,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(m_fullScreenAction,  SIGNAL(triggered(bool)), this, SLOT(onFullScreenAction(bool)));
     connect(m_firstChoiceAction, SIGNAL(triggered()),     this, SLOT(onFirstChoiceAction()));
-
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+
 }
 
 void MainWindow::onFullScreenAction(bool checked)

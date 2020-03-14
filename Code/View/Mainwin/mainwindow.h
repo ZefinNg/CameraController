@@ -8,10 +8,6 @@
 #include <QAction>
 #include <QDebug>
 
-namespace Ui {
-class MainWindow;
-}
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -21,11 +17,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void onFullScreenAction();
+    void onFullScreenAction(bool checked);
     void onFirstChoiceAction();
 
 private:
-    Ui::MainWindow *ui;
     QMenu *m_settingMenu;
     QAction *m_fullScreenAction;
     QAction *m_firstChoiceAction;
