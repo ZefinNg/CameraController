@@ -6,6 +6,11 @@
 #include <QMenu>
 #include <QDesktopWidget>
 #include <QAction>
+#include <QTranslator>
+#include <QApplication>
+#include <QDir>
+#include <QMenuBar>
+#include "Service/ConfigService/ConfigService.h"
 #include <QDebug>
 
 class MainWindow : public QMainWindow
@@ -21,11 +26,20 @@ private slots:
     void onFirstChoiceAction();
 
 private:
-    QMenu *m_settingMenu;
+    void loadLanguage(QString language);
+
+private:
+    QMenuBar *m_menuBar;
+
+    QMenu   *m_settingMenu;
     QAction *m_fullScreenAction;
     QAction *m_firstChoiceAction;
 
     QMenu *m_aboutMenu;
+
+    ConfigService *m_configService;
+
+    QTranslator *m_translator;
 };
 
 #endif // MAINWINDOW_H
