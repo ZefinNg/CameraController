@@ -8,6 +8,8 @@
 #include <QAction>
 #include <QDebug>
 
+#include "AboutDialog/AboutDialog.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -21,8 +23,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void onFullScreenAction();
-    void onFirstChoiceAction();
+    void onFullScreenActionTriggered(bool isChecked);
+    void onFirstChoiceActionTriggered();
+
+    void onAboutTriggered();
 
 private:
     Ui::MainWindow *ui;
@@ -30,7 +34,8 @@ private:
     QAction *m_fullScreenAction;
     QAction *m_firstChoiceAction;
 
-    QMenu *m_aboutMenu;
+    QMenu *m_helpMenu;
+    QAction *m_aboutAction;
 };
 
 #endif // MAINWINDOW_H
